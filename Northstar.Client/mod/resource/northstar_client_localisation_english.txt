@@ -214,6 +214,13 @@ Press Yes if you agree to this. This choice can be changed in the mods menu at a
 		"FASTBALL_PANEL_CAPTURED" "%s1 captured panel %s2"
 		"SCOREBOARD_FASTBALL_HACKS" "Panels Captured"
 
+		"PL_instagib" "Instagib"
+		"PL_instagib_lobby" "Instagib Lobby"
+		"PL_instagib_desc" "Free-for-all with instant-firing Charge Rifles."
+		"PL_instagib_hint" "Free-for-all with instant-firing Charge Rifles."
+		"PL_instagib_abbr" "IG"
+		"GAMEMODE_INSTAGIB" "Instagib"
+
 		"GAMEMODE_ctf_comp" "Competitive CTF"
 
 		// mode settings

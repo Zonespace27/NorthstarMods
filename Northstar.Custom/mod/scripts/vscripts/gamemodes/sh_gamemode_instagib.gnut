@@ -1,0 +1,40 @@
+globalize_all_functions
+
+global const string GAMEMODE_INSTAGIB = "instagib"
+
+void function Sh_GamemodeInstagib_Init()
+	{
+		// create custom gamemode
+		AddCallback_OnCustomGamemodesInit(CreateGamemodeInstagib)
+	}
+
+void function CreateGamemodeInstagib()
+	{
+		GameMode_Create(GAMEMODE_INSTAGIB)
+			GameMode_SetName(GAMEMODE_INSTAGIB, "#GAMEMODE_INSTAGIB")
+			GameMode_SetDesc(GAMEMODE_INSTAGIB, "#PL_instagib_desc")
+			GameMode_SetGameModeAnnouncement(GAMEMODE_INSTAGIB, "ffa_modeDesc")
+			GameMode_SetDefaultTimeLimits(GAMEMODE_INSTAGIB, 10, 0.0)
+			GameMode_AddScoreboardColumnData(GAMEMODE_INSTAGIB, "#SCOREBOARD_SCORE", PGS_ASSAULT_SCORE, 2)
+			GameMode_AddScoreboardColumnData(GAMEMODE_INSTAGIB, "#SCOREBOARD_PILOT_KILLS", PGS_PILOT_KILLS, 2)
+			GameMode_SetColor(GAMEMODE_INSTAGIB, [147, 204, 57, 255])
+
+			AddPrivateMatchMode(GAMEMODE_INSTAGIB) // add to private lobby modes
+
+			GameMode_SetDefaultScoreLimits(GAMEMODE_INSTAGIB, 20, 0)
+
+#if SERVER
+			GameMode_AddServerInit(GAMEMODE_INSTAGIB, GamemodeInstagib_Init)
+			GameMode_AddServerInit(GAMEMODE_INSTAGIB, GamemodeFFAShared_Init)
+			GameMode_SetPilotSpawnpointsRatingFunc(GAMEMODE_INSTAGIB, RateSpawnpoints_Generic)
+			GameMode_SetTitanSpawnpointsRatingFunc(GAMEMODE_INSTAGIB, RateSpawnpoints_Generic)
+#elseif CLIENT
+			GameMode_AddClientInit(GAMEMODE_INSTAGIB, ClGamemodeInstagib_Init)
+			GameMode_AddClientInit(GAMEMODE_INSTAGIB, GamemodeFFAShared_Init)
+			GameMode_AddClientInit(GAMEMODE_INSTAGIB, ClGamemodeFFA_Init)
+#endif
+#if !UI
+			GameMode_SetScoreCompareFunc(GAMEMODE_INSTAGIB, CompareAssaultScore)
+			GameMode_AddSharedInit(GAMEMODE_INSTAGIB, GamemodeFFA_Dialogue_Init)
+#endif
+	}

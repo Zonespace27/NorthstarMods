@@ -3,6 +3,7 @@ global function NorthstarCustomPrecache
 void function NorthstarCustomPrecache()
 {
 	PrecacheWeapon( "mp_weapon_peacekraber" )
+	PrecacheWeapon( "mp_weapon_instagib_chargerifle" )
 	PrecacheWeapon( "mp_titanweapon_triplethreat" )
 	PrecacheWeapon( "mp_titanweapon_arc_cannon" )
 	PrecacheWeapon( "melee_pilot_kunai" )

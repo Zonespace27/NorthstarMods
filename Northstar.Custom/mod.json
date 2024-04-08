@@ -44,6 +44,10 @@
 			"RunOn": "( CLIENT || SERVER ) && MP"
 		},
 		{
+			"Path": "weapons/mp_weapon_instagib_chargerifle.nut",
+			"RunOn": "( CLIENT || SERVER ) && MP"
+		},
+		{
 			"Path": "weapons/mp_titanweapon_arc_cannon.nut",
 			"RunOn": "( CLIENT || SERVER ) && MP"
 		},
@@ -318,6 +322,24 @@
 			"RunOn": "CLIENT && MP"
 		},
 		{
+			"Path": "gamemodes/sh_gamemode_instagib.gnut",
+			"RunOn": "( CLIENT || SERVER ) && MP",
+			"ClientCallback": {
+				"Before": "Sh_GamemodeInstagib_Init"
+			},
+			"ServerCallback": {
+				"Before": "Sh_GamemodeInstagib_Init"
+			}
+		},
+		{
+			"Path": "gamemodes/_gamemode_instagib.nut",
+			"RunOn": "SERVER && MP"
+		},
+		{
+			"Path": "gamemodes/cl_gamemode_instagib.gnut",
+			"RunOn": "CLIENT && MP"
+		},
+		{
 			"Path": "sh_3psequence_to_1p_hacks.gnut",
 			"RunOn": "( CLIENT || SERVER ) && MP",
 			"ClientCallback": {
@@ -433,7 +455,7 @@
 			}
 		},
 		{
-			"Path":  "sh_northstar_http_requests.gnut",
+			"Path": "sh_northstar_http_requests.gnut",
 			"RunOn": "CLIENT || SERVER || UI"
 		},
 		{
@@ -450,7 +472,7 @@
 		{
 			"Path": "ui/ns_custom_mod_settings.gnut",
 			"RunOn": "UI",
-			"UICallback":{
+			"UICallback": {
 				"Before": "NSCustomModSettings"
 			}
 		}
